@@ -9,23 +9,22 @@ module.exports = function(homebridge) {
 
 function AmbientLightTasmotaAccessory(log, config) {
   this.log = log;
-        this.name = config["name"] || "Sonoff";
-        this.manufacturer = config['manufacturer'] || "ITEAD";
-        this.model = config['model'] || "Sonoff";
-        this.serialNumberMAC = config['serialNumberMAC'] || "";
+  this.name = config["name"] || "Sonoff";
+  this.manufacturer = config['manufacturer'] || "ITEAD";
+  this.model = config['model'] || "Sonoff";
+  this.serialNumberMAC = config['serialNumberMAC'] || "";
 
-        this.sensorPropertyName = config["sensorPropertyName"] || "Sensor";
+  this.sensorPropertyName = config["sensorPropertyName"] || "Sensor";
 
-        this.url = config['url'];
-        this.topic = config['topic'];
-        if (config["activityTopic"] !== undefined) {
-                this.activityTopic = config["activityTopic"];
-                this.activityParameter = config["activityParameter"];
-        }
-        else {
-                this.activityTopic = "";
-                this.activityParameter = "";
-        }
+  this.url = config['url'];
+  this.topic = config['topic'];
+  if (config["activityTopic"] !== undefined) {
+     this.activityTopic = config["activityTopic"];
+     this.activityParameter = config["activityParameter"];
+  } else {
+     this.activityTopic = "";
+     this.activityParameter = "";
+  }
   this.options = {
     keepalive: 10,
     clientId: this.client_Id,
@@ -34,7 +33,7 @@ function AmbientLightTasmotaAccessory(log, config) {
     clean: true,
     reconnectPeriod: 1000,
     connectTimeout: 30 * 1000,
-	    connectTimeout: 30 * 1000,
+	  
     will: {
       topic: 'WillMsg',
       payload: 'Connection Closed abnormally..!',
@@ -46,23 +45,24 @@ function AmbientLightTasmotaAccessory(log, config) {
     rejectUnauthorized: false
   };
 
-        this.service = new Service.LightSensor(this.name);
-        this.service.addCharacteristic(Characteristic.CurrentAmbientLightLevel);
-        if(this.activityTopic !== "") {
-                this.service.addOptionalCharacteristic(Characteristic.StatusActive)
-        }
+  this.service = new Service.LightSensor(this.name);
+  if(this.activityTopic !== "") {
+    this.service.addOptionalCharacteristic(Characteristic.StatusActive)
+  }
 
   this.client  = mqtt.connect(this.url, this.options);
 
-    this.client.on('error', function () {
-		that.log('Error event on MQTT');
-        });
+  this.client.on('error', function () {
+  that.log('Error event on MQTT');
+  }
+);
 
-        this.client.on('connect', function () {
-                if (config["startCmd"] !== undefined) {
-                        that.client.publish(config["startCmd"], config["startParameter"]);
-                }
-        });
+  this.client.on('connect', function () {
+     if (config["startCmd"] !== undefined) {
+         that.client.publish(config["startCmd"], config["startParameter"]);
+     }
+  }
+);
 
   var that = this;
   this.client.subscribe(this.topic);
