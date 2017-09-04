@@ -1,14 +1,14 @@
 {
-  "name": "homebridge-mqtt-humidity-tasmota",
-  "version": "0.1.2",
-  "description": "Plugin to HomeBridge optimized for work with Itead Sonoff and Electrodragon Relay Board hardware and firmware Sonoff-Tasmota via MQTT. It acts as an Relative Humidity (and temperature) for DHT22, DHT11, AM2301, AM2302 sensors.",
+  "name": "homebridge-mqtt-lux-tasmota",
+  "version": "0.1.1",
+  "description": "Plugin to HomeBridge optimized for work with Itead Sonoff and Electrodragon Relay Board hardware and firmware Sonoff-Tasmota via MQTT. It acts as an Ambient Light sensors.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MacWyznawca/homebridge-mqtt-humidity-tasmota.git"
+    "url": "git+https://github.com/kutteg/homebridge-mqtt-lux-tasmota.git"
   },
   "dependencies": {
     "mqtt": "^1.12.0"
@@ -27,17 +27,12 @@
     "Sonoff-Tasmota",
 	"electrodragon",
 	"Wifi IoT Relay Board",
-	"DHT22",
-	"DHT11",
-	"AM2301",
-	"AM2302",
-	"humidity",
-	"temperature"
+	"BH1750"
   ],
-  "author": "Jaromir Kopp",
+  "author": "Kurt Greger",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MacWyznawca/homebridge-mqtt-humidity-tasmota/issues"
+    "url": "https://github.com/kutteg/homebridge-mqtt-lux-tasmota/issues"
   },
-  "homepage": "https://github.com/MacWyznawca/homebridge-mqtt-humidity-tasmota#readme"
+  "homepage": "https://github.com/kutteg/homebridge-mqtt-lux-tasmota#readme"
 }
