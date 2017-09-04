@@ -12,7 +12,7 @@
 	
 	"accessories": [
 		{
-			"accessory": "mqtt-humidity-tasmota",
+			"accessory": "mqtt-lux-tasmota",
 
 			"name": "NAME OF THIS ACCESSORY",
 	
