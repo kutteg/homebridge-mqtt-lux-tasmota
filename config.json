@@ -13,7 +13,7 @@
 	
 	"accessories": [
 		{
-			"accessory": "mqtt-humidity-tasmota",
+			"accessory": "mqtt-lux-tasmota",
 
 			"name": "NAME OF THIS ACCESSORY",
 	
@@ -29,7 +29,7 @@
 			"startCmd": "cmnd/sonoff/TelePeriod",
 			"startParameter": "120",
 			
-			"sensorPropertyName": "BME280_2",
+			"sensorPropertyName": "BH1750",
 
 			"manufacturer": "ITEAD",
 			"model": "Sonoff TH",
