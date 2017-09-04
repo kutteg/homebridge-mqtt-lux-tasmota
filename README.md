@@ -1,14 +1,14 @@
-# homebridge-mqtt-humidity-tasmota
+# homebridge-mqtt-lux-tasmota
 
-Plugin to HomeBridge optimized for work with Itead Sonoff and Electrodragon Relay Board hardware and firmware [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) via MQTT. It acts as an Relative Humidity (and temperature) accessory for DHT22, DHT11, AM2301, AM2302 and other sensors.
+Plugin to HomeBridge optimized for work with Itead Sonoff and Electrodragon Relay Board hardware and firmware [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) via MQTT. It acts as an Ambient Light accessory for BH1750 sensors.
 
 Like this? Please buy me a beer (or coffee) ;-) <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=CK56Q7SFHEHSW"><img src="http://macwyznawca.pl/donate-paypal2.png" alt="Donate a coder" data-canonical-src="http://macwyznawca.pl/donate-paypal.svg" style="max-width:100%;"></a>
 
-[MacWyznawca.pl](http://macwyznawca.pl) Jaromir Kopp
+Kurt Greger
 
 Installation
 --------------------
-    sudo npm install -g homebridge-mqtt-humidity-tasmota
+    sudo npm install -g homebridge-mqtt-lux-tasmota
 
 Sample HomeBridge Configuration (complete)
 --------------------
@@ -42,9 +42,9 @@ Sample HomeBridge Configuration (complete)
 			"activityParameter": "Online",
 			
 			"startCmd": "cmnd/sonoff/TelePeriod",
-			"startParameter": "120",
+			"startParameter": "60",
 			
-			"sensorPropertyName": "BME280_2",
+			"sensorPropertyName": "BH1750",
 
 			"manufacturer": "ITEAD",
 			"model": "Sonoff TH",
@@ -99,4 +99,4 @@ Sample HomeBridge Configuration (minimal)
 
 **"startParameter": "60"** - payload for **startCmd**.
 
-**"sensorPropertyName": "BME280-2"** - custom Property name for sensor (see accessory WWW console for tips:  {"Time":"2017-03-01T08:47:19", "**DHT22-2**":{"Temperature":4.6, "Humidity":71.7}})
+**"sensorPropertyName": "BH1750"** - custom Property name for sensor (see accessory WWW console for tips:  {"Time":"2017-03-01T08:47:19", "**BH1750**":{"Illuminance":120}})
